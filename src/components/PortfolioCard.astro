@@ -7,9 +7,9 @@ const { title, image, link } = Astro.props;
 
     <div class="portfolio__img">
         <img src={image} alt="">
-        <div class="portfolio__link">
-            <a href={link} class="portfolio__link-name">Ver Detalles</a>
-        </div>
+        <a  href={link} class="portfolio__link">
+            <p class="portfolio__link-name">Ver Detalles</p>
+        </a>
     </div>
     {
        <a
