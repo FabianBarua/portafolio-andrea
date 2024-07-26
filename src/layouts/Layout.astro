@@ -1,51 +1,166 @@
 ---
+import 'boxicons/css/boxicons.min.css'
+import '../../public/index.css'
+
 interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
 ---
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+
+        <title>Andrea Aguayo 🪐</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#home" class="nav__logo">Andrea Aguayo</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Inicio</a></li>
+                            <li class="nav__item"><a href="#about" class="nav__link">Sobre</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Conocimientos</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portafolio</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contacto</a></li>
+                        <li class="nav__item"><a href="CV.pdf" target="_blank" class="nav__link">Descargar CV</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <slot></slot>
+        </main>
+
+
+
+
+
+        <!--===== FOOTER =====-->
+        <footer class="footer section">
+            <div class="footer__container bd-grid">
+                <div class="footer__data">
+                    <h2 class="footer__title">@andreaaguayo16</h2>
+                    <p class="footer__text">Soy Andrea Aguayo y esta es mi pagina web.</p>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__title">EXPLORAR</h2>
+                    <ul>
+                        <li><a href="#home" class="footer__link">Inicio</a></li>
+                        <li><a href="#about" class="footer__link">Sobre</a></li>
+                        <li><a href="#skills" class="footer__link">Conocimientos</a></li>
+                        <li><a href="#portfolio" class="footer__link">Portafolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__title">SIGUEME</h2>
+                    <a href="https://www.facebook.com/aadfb2003/" class="footer__social"><i class='bx bxl-facebook' ></i></a>
+                    <a href="https://www.instagram.com/andreaaguayo16/" class="footer__social"><i class='bx bxl-instagram' ></i></a>
+                </div>
+
+
+            </div>
+        </footer>
+
+        <!--===== MAIN JS =====-->
+    </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
+<script>
+	import ScrollReveal from 'scrollreveal';
+
+	/*===== MENU SHOW =====*/ 
+    const showMenu = (toggleId: string, navId : string) =>{
+        const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId)
+
+        if(toggle && nav){
+            toggle.addEventListener('click', ()=>{
+                nav.classList.toggle('show')
+            })
+        }
+    }
+showMenu('nav-toggle','nav-menu')
+
+/*===== REMOVE MENU MOBILE =====*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu) {
+        navMenu.classList.remove('show');
+    }
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*===== SCROLL SECTIONS ACTIVE LINK =====*/
+const sections = document.querySelectorAll('section[id]')
+
+window.addEventListener('scroll', scrollActive)
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = (current as HTMLElement).offsetHeight;
+        const sectionTop = (current as HTMLElement).offsetTop - 50;
+        const sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.add('active')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.remove('active')
+        }
+    })
+}
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    reset: true
+})
+
+/*SCROLL HOME*/
+sr.reveal('.home__title', {})
+sr.reveal('.home__scroll', {delay: 200})
+sr.reveal('.home__img', {origin:'right', delay: 400})
+
+/*SCROLL ABOUT*/
+sr.reveal('.abouts__img', {delay: 500})
+sr.reveal('.about__subtitle', {delay: 300})
+sr.reveal('.about__profession', {delay: 400})
+sr.reveal('.about__text', {delay: 500})
+sr.reveal('.about__social-icon', {delay: 600, interval: 200})
+
+/*SCROLL SKILLS*/
+sr.reveal('.skills__subtitle', {})
+sr.reveal('.skills__name', {distance: '20px', delay: 50, interval: 100})
+sr.reveal('.skills__img', {delay: 400})
+
+/*SCROLL PORTFOLIO*/
+sr.reveal('.portfolio__img', {interval: 200})
+sr.reveal('.portfolio__title', {delay: 400})
+
+/*SCROLL CONTACT*/
+sr.reveal('.contact__subtitle', {})
+sr.reveal('.contact__text', {interval: 200})
+sr.reveal('.contact__input', {delay: 400})
+sr.reveal('.contact__button', {delay: 600})
+
+</script>

@@ -1,0 +1,33 @@
+---
+
+const { title, image, link } = Astro.props;
+
+---
+<div>
+
+    <div class="portfolio__img">
+        <img src={image} alt="">
+        <div class="portfolio__link">
+            <a href={link} class="portfolio__link-name">Ver Detalles</a>
+        </div>
+    </div>
+    {
+       <a
+        href={link}
+       class="portfolio__title">{title}</a>
+    }
+</div>  
+
+<style>
+    .portfolio__title{
+        margin-top: 30px;
+        color: #000;
+        font-weight: 400;
+    }
+    .portfolio__title:hover{
+        color: var(--first-color);
+    }
+    .portfolio__img {
+        margin-bottom: 20px;
+    }
+</style>
