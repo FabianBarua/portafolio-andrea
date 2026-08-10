@@ -1,120 +1,1445 @@
 ---
-import PortfolioCard from '../components/PortfolioCard.astro';
-import Layout from '../layouts/Layout.astro';
-
-const skills = [
-	'Photoshop',
-	'Illustrator',
-	'Corel Draw',
-	'Cap Cut',
-	'Premiere',
-	'canva'
+const projects = [
+  {
+    number: "01",
+    title: "Campañas & Publicidad",
+    category: "Advertising · Digital",
+    image: "/img/work1.jpg",
+  },
+  {
+    number: "02",
+    title: "Diseño Promocional",
+    category: "Print · Advertising",
+    image: "/img/work2.jpg",
+  },
+  {
+    number: "03",
+    title: "Social Media",
+    category: "Content · Digital",
+    image: "/img/work4.jpg",
+  },
+  {
+    number: "04",
+    title: "Diseño Comercial",
+    category: "Retail · Print",
+    image: "/img/work3.jpg",
+  },
+  {
+    number: "05",
+    title: "Edición & Composición",
+    category: "Photo Editing · Creative",
+    image: "/img/work5.jpg",
+  },
+  {
+    number: "06",
+    title: "Material Gráfico",
+    category: "Print · Large Format",
+    image: "/img/work6.jpg",
+  },
 ];
 
-const portfolio = [
-	{
-		title: 'Storys',
-		img: '/img/work1.jpg',
-		link: 'https://drive.google.com/drive/folders/1-K5JOYKn6Akrxm_psUHGA9htGXMlkTns?usp=drive_link'
-	},
-	{
-		title: 'Laminas - Promo',
-		img: '/img/work2.jpg',
-		link: 'https://drive.google.com/drive/folders/1jck4zW38Wvy5xwE31hZsauxBKvymMyIp?usp=drive_link'
-	},
-	{
-		title: 'Laminas - Calzados',
-		img: '/img/work3.jpg',
-		link: 'https://drive.google.com/drive/folders/1Twr8x98iYRD97hN6F1EhvafdJ4qGSBtX?usp=drive_link'
-	},
-	{
-		title: 'Feed RRSS',
-		img: '/img/work4.jpg',
-		link: 'https://drive.google.com/drive/folders/1eswXe69X12eWuxeeL2vL3OYFsB8iZfla?usp=drive_link'
-	},
-	{
-		title: 'Ediciones',
-		img: '/img/work5.jpg',
-		link: 'https://drive.google.com/drive/folders/1i7hoigyl0Z9QABSuG2AvxePRiPKOF2H1?usp=sharing'
-	},
-	{
-		title: 'Carteles',
-		img: '/img/work6.jpg',
-		link: 'https://drive.google.com/drive/folders/1tS_QW3292C97E-iCzuS7KXAFERTEXCSv?usp=sharing'
-	}
+const tools = [
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Adobe Premiere Pro",
+  "After Effects",
+  "CorelDRAW",
+  "Canva",
+  "Capcut",
 ];
 
+const stats = [
+  {
+    value: "05+",
+    label: "Años de experiencia",
+  },
+  {
+    value: "PY",
+    label: "Paraguay",
+  },
+  {
+    value: "ES / GN",
+    label: "Idiomas nativos",
+  },
+  {
+    value: "360°",
+    label: "Digital · Print · Retail",
+  },
+];
 ---
 
-<Layout title="Portafolio - Andrea Aguayo">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HO</span><br>LA.</h1>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Desliza Abajo</a>
-                    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                    <img src="/img/perfil.png" alt="" class="home__img">
+    <meta
+      name="description"
+      content="Portafolio de Andrea Aguayo, diseñadora gráfica especializada en publicidad, social media, retail y comunicación visual."
+    />
+
+    <title>Andrea Aguayo — Diseñadora Gráfica</title>
+  </head>
+
+  <body>
+    <!-- =========================
+       NAV
+  ========================== -->
+
+    <header class="nav">
+      <a href="#inicio" class="logo"> ANDREA AGUAYO </a>
+
+      <nav class="nav-links">
+        <a href="#proyectos"> Proyectos </a>
+
+        <a href="#experiencia"> Experiencia </a>
+
+        <a href="#sobre-mi"> Sobre mí </a>
+
+        <a href="#contacto"> Contacto </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =========================
+         HERO
+    ========================== -->
+
+      <section class="hero" id="inicio">
+        <div class="hero-top">
+          <span> PORTFOLIO / 2026 </span>
+
+          <span class="availability"> Disponible para nuevos proyectos </span>
+        </div>
+
+        <div class="hero-title">
+          <h1>
+            GRAPHIC
+            <span>DESIGNER.</span>
+          </h1>
+        </div>
+
+        <div class="hero-bottom">
+          <p class="hero-description">
+            Diseño identidades, campañas y piezas visuales para marcas que
+            necesitan comunicar con claridad, personalidad y consistencia.
+          </p>
+
+          <div class="hero-meta">
+            <span>Advertising</span>
+
+            <span>Social Media</span>
+
+            <span>Branding</span>
+
+            <span>Print & Retail</span>
+          </div>
+        </div>
+
+        <a class="scroll" href="#proyectos"> VER PROYECTOS ↓ </a>
+      </section>
+
+      <!-- =========================
+         PROJECTS
+    ========================== -->
+
+      <section class="projects" id="proyectos">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow"> 01 / SELECTED WORK </span>
+
+            <h2>
+              Proyectos<br />
+              seleccionados.
+            </h2>
+          </div>
+
+          <p>
+            Una selección de trabajos de comunicación visual, publicidad,
+            contenido digital, retail y materiales impresos.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          {
+            projects.map((project) => (
+              <article class="project-card">
+                <div class="project-image">
+                  <img src={project.image} alt={project.title} loading="lazy" />
+
+                  <div class="project-number">{project.number}</div>
                 </div>
-            </section>
 
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">Sobre</h2>
+                <div class="project-info">
+                  <div>
+                    <h3>{project.title}</h3>
 
-                <div class="about__container bd-grid">
-                    <div class="abouts__img">
-                        <img src="/img/foto.jpg" alt="">
-                    </div>
+                    <p>{project.category}</p>
+                  </div>
 
-                    <div>
-                        <h2 class="about__subtitle">Hola soy <br> Andrea Aguayo</h2>
-                        <span class="about__profession">Diseñadora grafica</span>
-                        <p class="about__text">Soy la encargada de representar gráficamente tus ideas de la forma más creativa en diseños digitales, logos, flyers, banners, publicidades o propagandas según tu finalidad.</p>
-
-                    </div>
+                  <span class="project-arrow">↗</span>
                 </div>
-            </section>
+              </article>
+            ))
+          }
+        </div>
+      </section>
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Conocimientos</h2>
+      <!-- =========================
+         EXPERIENCE
+    ========================== -->
 
-                <div class="skills__container bd-grid">
-                    <div class="skills__box">
-                        <h3 class="skills__subtitle">Diseño grafico</h3>
-						{
-							skills.map((skill, index) => (
-								<span class="skills__name">{skill}</span>
-							))
-						}
-                        
-                    </div>
+      <section class="experience" id="experiencia">
+        <div class="section-label">
+          <span class="eyebrow"> 02 / EXPERIENCIA </span>
+        </div>
 
-                    <div class="skills__img">
-                        <img src="/img/skill.jpg" alt="">
-                    </div>
-                </div>
-            </section>
+        <div class="experience-content">
+          <div class="experience-title">
+            <h2>Diseño aplicado a marcas y experiencias reales.</h2>
+          </div>
 
-            <!--===== PORTFOLIO =====-->
-            <section class="portfolio section" id="portfolio">
-                <h2 class="section-title">Portafolio</h2>
+          <div class="experience-list">
+            <!-- OPPO -->
 
-                <div class="portfolio__container bd-grid">
-          
-                    {
-                        portfolio.map(
-                            (project, index) => (
-                                <PortfolioCard title={project.title} image={project.img} link={project.link} />
-                            )
-                        )
-                    }
-                </div>
-                <a class="section-vermas" href="https://drive.google.com/drive/folders/1dwcr2mAqA4MoitC7Pxim1Vpf-5qeakp1?usp=sharing" target="_blank">Ver más proyectos</a>
-            </section>
+            <article class="experience-item">
+              <div class="experience-year">2024 — PRESENTE</div>
 
-</Layout>
+              <div class="experience-data">
+                <h3>OPPO Paraguay</h3>
 
+                <span> Diseñadora Gráfica </span>
+
+                <p>
+                  Desarrollo de comunicación visual para campañas, lanzamientos
+                  de productos, redes sociales, puntos de venta, eventos y
+                  materiales comerciales.
+                </p>
+
+                <ul>
+                  <li>Campañas de lanzamiento de smartphones</li>
+
+                  <li>Flyers y piezas para redes sociales</li>
+
+                  <li>Gigantografías, banners y cartelería</li>
+
+                  <li>Material POP y comunicación para tiendas</li>
+
+                  <li>Merchandising y materiales para eventos</li>
+
+                  <li>Adaptación de artes a múltiples formatos</li>
+
+                  <li>Edición y composición de imágenes</li>
+
+                  <li>Edición de contenido audiovisual</li>
+
+                  <li>Aplicación de lineamientos y manuales de marca</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- EXPERIENCIA ANTERIOR -->
+
+            <article class="experience-item last">
+              <div class="experience-year">EXPERIENCIA ANTERIOR</div>
+
+              <div class="experience-data">
+                <h3>Diseño & comunicación visual</h3>
+
+                <span> Diseñadora Gráfica </span>
+
+                <p>
+                  Experiencia desarrollando piezas comerciales, contenido para
+                  redes sociales, material publicitario, edición gráfica y
+                  comunicación visual para diferentes formatos y necesidades.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         ABOUT — SIN FOTO
+    ========================== -->
+
+      <section class="about" id="sobre-mi">
+        <div class="about-top">
+          <span class="eyebrow"> 03 / SOBRE MÍ </span>
+        </div>
+
+        <div class="about-main">
+          <div class="about-title">
+            <h2>
+              Diseño para
+
+              <em> comunicar. </em>
+
+              No solamente
+
+              <span> para decorar. </span>
+            </h2>
+          </div>
+
+          <div class="about-info">
+            <p class="about-lead">
+              Soy Andrea Aguayo, diseñadora gráfica con más de cinco años de
+              experiencia desarrollando comunicación visual para medios
+              digitales, publicidad, impresión y retail.
+            </p>
+
+            <div class="about-columns">
+              <p>
+                Actualmente desarrollo materiales gráficos para OPPO Paraguay,
+                trabajando en campañas, lanzamientos de productos, comunicación
+                para puntos de venta, eventos y contenidos digitales.
+              </p>
+
+              <p>
+                Mi enfoque combina creatividad con funcionalidad. Cada diseño
+                debe tener una intención clara, respetar la identidad de la
+                marca y responder correctamente al medio donde será utilizado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATS -->
+
+        <div class="stats">
+          {
+            stats.map((stat) => (
+              <div class="stat">
+                <span class="stat-value">{stat.value}</span>
+
+                <span class="stat-label">{stat.label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- =========================
+         TOOLS
+    ========================== -->
+
+      <section class="tools">
+        <div class="tools-header">
+          <span class="eyebrow"> 04 / HERRAMIENTAS </span>
+
+          <p>Herramientas que forman parte de mi flujo de trabajo diario.</p>
+        </div>
+
+        <div class="tools-list">
+          {
+            tools.map((tool, index) => (
+              <div class="tool">
+                <span class="tool-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="tool-name">{tool}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- =========================
+         CONTACT
+    ========================== -->
+
+      <section class="contact" id="contacto">
+        <div class="contact-heading">
+          <span class="eyebrow"> 05 / CONTACTO </span>
+
+          <h2>
+            ¿Trabajamos
+
+            <em> juntos? </em>
+          </h2>
+        </div>
+
+        <div class="contact-bottom">
+          <p>Diseño gráfico · Publicidad · Social Media · Retail · Branding</p>
+
+          <div class="contact-links">
+            <a
+              href="https://www.instagram.com/andreaaguayo16/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram ↗
+            </a>
+
+            <a href="#"> Email ↗ </a>
+
+            <a href="#"> Descargar CV ↗ </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+       FOOTER
+  ========================== -->
+
+    <footer>
+      <span> © 2026 ANDREA AGUAYO </span>
+
+      <a href="#inicio"> VOLVER ARRIBA ↑ </a>
+    </footer>
+
+    <style>
+      /* =========================
+       RESET
+    ========================== */
+
+      :global(*) {
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+      }
+
+      :global(html) {
+        scroll-behavior: smooth;
+      }
+
+      :global(body) {
+        background: #f3f3ef;
+
+        color: #111111;
+
+        font-family: Inter, Arial, Helvetica, sans-serif;
+
+        overflow-x: hidden;
+      }
+
+      :global(a) {
+        color: inherit;
+
+        text-decoration: none;
+      }
+
+      :global(img) {
+        display: block;
+
+        width: 100%;
+      }
+
+      /* =========================
+       NAV
+    ========================== */
+
+      .nav {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        height: 78px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 0 3vw;
+
+        z-index: 100;
+
+        background: rgba(243, 243, 239, 0.88);
+
+        backdrop-filter: blur(16px);
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .logo {
+        font-weight: 700;
+
+        font-size: 14px;
+
+        letter-spacing: -0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+
+        gap: 32px;
+
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -5px;
+
+        width: 0;
+
+        height: 1px;
+
+        background: #111;
+
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================
+       HERO
+    ========================== */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 125px 3vw 45px;
+
+        display: flex;
+
+        flex-direction: column;
+      }
+
+      .hero-top {
+        display: flex;
+
+        justify-content: space-between;
+
+        font-size: 11px;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+      }
+
+      .availability {
+        display: flex;
+
+        gap: 8px;
+
+        align-items: center;
+      }
+
+      .availability::before {
+        content: "";
+
+        width: 7px;
+
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: #4ee36c;
+      }
+
+      .hero-title {
+        flex: 1;
+
+        display: flex;
+
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(80px, 14.3vw, 230px);
+
+        line-height: 0.78;
+
+        letter-spacing: -0.085em;
+
+        font-weight: 700;
+      }
+
+      .hero h1 span {
+        display: block;
+
+        font-weight: 300;
+      }
+
+      .hero-bottom {
+        display: grid;
+
+        grid-template-columns:
+          1fr
+          1fr;
+
+        gap: 80px;
+
+        align-items: end;
+      }
+
+      .hero-description {
+        max-width: 530px;
+
+        font-size: clamp(20px, 2vw, 31px);
+
+        line-height: 1.3;
+
+        letter-spacing: -0.035em;
+      }
+
+      .hero-meta {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+
+        gap: 8px;
+      }
+
+      .hero-meta span {
+        padding: 9px 15px;
+
+        border: 1px solid #bbb;
+
+        border-radius: 100px;
+
+        font-size: 11px;
+
+        text-transform: uppercase;
+      }
+
+      .scroll {
+        margin-top: 45px;
+
+        width: max-content;
+
+        font-size: 11px;
+
+        letter-spacing: 0.08em;
+      }
+
+      /* =========================
+       GENERIC
+    ========================== */
+
+      .eyebrow {
+        font-size: 11px;
+
+        letter-spacing: 0.11em;
+
+        text-transform: uppercase;
+      }
+
+      /* =========================
+       PROJECTS
+    ========================== */
+
+      .projects {
+        padding: 160px 3vw 140px;
+
+        background: #111;
+
+        color: #f4f4f0;
+      }
+
+      .section-header {
+        display: grid;
+
+        grid-template-columns:
+          2fr
+          1fr;
+
+        gap: 50px;
+
+        margin-bottom: 100px;
+      }
+
+      .section-header h2 {
+        margin-top: 25px;
+
+        font-size: clamp(65px, 8vw, 130px);
+
+        line-height: 0.9;
+
+        letter-spacing: -0.065em;
+
+        font-weight: 400;
+      }
+
+      .section-header > p {
+        max-width: 410px;
+
+        align-self: end;
+
+        font-size: 18px;
+
+        line-height: 1.55;
+
+        color: #aaa;
+      }
+
+      .projects-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 90px 24px;
+      }
+
+      .project-card {
+        cursor: pointer;
+      }
+
+      .project-image {
+        position: relative;
+
+        aspect-ratio: 4 / 3;
+
+        overflow: hidden;
+
+        background: #222;
+      }
+
+      .project-image img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.035);
+      }
+
+      .project-number {
+        position: absolute;
+
+        top: 18px;
+
+        left: 18px;
+
+        width: 38px;
+
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 50%;
+
+        background: #f3f3ef;
+
+        color: #111;
+
+        font-size: 10px;
+      }
+
+      .project-info {
+        padding-top: 18px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+      }
+
+      .project-info h3 {
+        font-size: 26px;
+
+        letter-spacing: -0.035em;
+
+        font-weight: 500;
+      }
+
+      .project-info p {
+        margin-top: 7px;
+
+        font-size: 12px;
+
+        color: #777;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.03em;
+      }
+
+      .project-arrow {
+        font-size: 27px;
+
+        transition: transform 0.25s ease;
+      }
+
+      .project-card:hover .project-arrow {
+        transform: translate(4px, -4px);
+      }
+
+      /* =========================
+       EXPERIENCE
+    ========================== */
+
+      .experience {
+        padding: 150px 3vw;
+
+        border-bottom: 1px solid #ccc;
+      }
+
+      .experience-content {
+        margin-top: 65px;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr
+          1.5fr;
+
+        gap: 10vw;
+      }
+
+      .experience-title h2 {
+        position: sticky;
+
+        top: 130px;
+
+        font-size: clamp(48px, 5.6vw, 95px);
+
+        line-height: 0.95;
+
+        letter-spacing: -0.06em;
+
+        font-weight: 400;
+      }
+
+      .experience-item {
+        padding: 0 0 70px;
+
+        margin-bottom: 70px;
+
+        border-bottom: 1px solid #ccc;
+      }
+
+      .experience-item.last {
+        margin-bottom: 0;
+      }
+
+      .experience-year {
+        margin-bottom: 35px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.08em;
+      }
+
+      .experience-data h3 {
+        font-size: 42px;
+
+        letter-spacing: -0.045em;
+
+        font-weight: 500;
+      }
+
+      .experience-data > span {
+        display: block;
+
+        margin-top: 8px;
+
+        color: #666;
+
+        font-size: 15px;
+      }
+
+      .experience-data p {
+        max-width: 700px;
+
+        margin-top: 35px;
+
+        font-size: 18px;
+
+        line-height: 1.6;
+      }
+
+      .experience-data ul {
+        margin-top: 30px;
+
+        list-style: none;
+      }
+
+      .experience-data li {
+        padding: 12px 0;
+
+        border-top: 1px solid #d5d5d0;
+
+        font-size: 14px;
+
+        line-height: 1.4;
+      }
+
+      /* =========================
+       ABOUT
+       SIN FOTO PERSONAL
+    ========================== */
+
+      .about {
+        padding: 150px 3vw 0;
+
+        background: #dfe2dd;
+
+        color: #111;
+      }
+
+      .about-top {
+        padding-bottom: 90px;
+      }
+
+      .about-main {
+        display: grid;
+
+        grid-template-columns:
+          1.35fr
+          0.65fr;
+
+        gap: 8vw;
+
+        align-items: end;
+      }
+
+      .about-title h2 {
+        max-width: 1050px;
+
+        font-size: clamp(70px, 8.4vw, 145px);
+
+        line-height: 0.84;
+
+        letter-spacing: -0.07em;
+
+        font-weight: 400;
+      }
+
+      .about-title em {
+        display: block;
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-weight: 400;
+      }
+
+      .about-title span {
+        display: block;
+      }
+
+      .about-info {
+        padding-bottom: 9px;
+      }
+
+      .about-lead {
+        font-size: clamp(22px, 2.1vw, 33px);
+
+        line-height: 1.3;
+
+        letter-spacing: -0.035em;
+      }
+
+      .about-columns {
+        margin-top: 55px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+      }
+
+      .about-columns p {
+        font-size: 14px;
+
+        line-height: 1.65;
+
+        color: #41433f;
+      }
+
+      /* STATS */
+
+      .stats {
+        margin-top: 120px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        border-top: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      .stat {
+        min-height: 230px;
+
+        padding: 25px 22px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        border-right: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      .stat:first-child {
+        padding-left: 0;
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat-value {
+        font-size: clamp(45px, 5vw, 80px);
+
+        letter-spacing: -0.065em;
+
+        line-height: 1;
+      }
+
+      .stat-label {
+        max-width: 180px;
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+        letter-spacing: 0.06em;
+
+        text-transform: uppercase;
+      }
+
+      /* =========================
+       TOOLS
+    ========================== */
+
+      .tools {
+        padding: 140px 3vw;
+      }
+
+      .tools-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 40px;
+      }
+
+      .tools-header p {
+        max-width: 310px;
+
+        color: #666;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+      }
+
+      .tools-list {
+        margin-top: 70px;
+
+        border-top: 1px solid #bbb;
+      }
+
+      .tool {
+        display: grid;
+
+        grid-template-columns:
+          120px
+          1fr;
+
+        padding: 25px 0;
+
+        border-bottom: 1px solid #bbb;
+
+        font-size: clamp(30px, 4vw, 65px);
+
+        letter-spacing: -0.045em;
+      }
+
+      .tool-number {
+        padding-top: 10px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.08em;
+      }
+
+      /* =========================
+       CONTACT
+    ========================== */
+
+      .contact {
+        min-height: 85vh;
+
+        padding: 120px 3vw 50px;
+
+        background: #111;
+
+        color: white;
+
+        display: flex;
+
+        flex-direction: column;
+      }
+
+      .contact-heading h2 {
+        margin-top: 60px;
+
+        font-size: clamp(75px, 12vw, 190px);
+
+        line-height: 0.8;
+
+        letter-spacing: -0.075em;
+
+        font-weight: 400;
+      }
+
+      .contact-heading em {
+        display: block;
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-weight: 400;
+      }
+
+      .contact-bottom {
+        margin-top: auto;
+
+        padding-top: 100px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-end;
+
+        gap: 50px;
+      }
+
+      .contact-bottom p {
+        max-width: 410px;
+
+        color: #888;
+
+        line-height: 1.5;
+      }
+
+      .contact-links {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-end;
+
+        gap: 10px;
+      }
+
+      .contact-links a {
+        font-size: 28px;
+
+        letter-spacing: -0.03em;
+
+        transition: opacity 0.2s ease;
+      }
+
+      .contact-links a:hover {
+        opacity: 0.55;
+      }
+
+      /* =========================
+       FOOTER
+    ========================== */
+
+      footer {
+        background: #111;
+
+        color: #777;
+
+        padding: 30px 3vw;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        border-top: 1px solid #292929;
+
+        font-size: 11px;
+
+        letter-spacing: 0.08em;
+      }
+
+      /* =========================
+       TABLET
+    ========================== */
+
+      @media (max-width: 1050px) {
+        .about-main {
+          grid-template-columns: 1fr;
+        }
+
+        .about-info {
+          max-width: 720px;
+
+          margin-left: auto;
+
+          margin-top: 75px;
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat:nth-child(2) {
+          border-right: 0;
+        }
+
+        .stat:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      /* =========================
+       MOBILE
+    ========================== */
+
+      @media (max-width: 850px) {
+        .nav {
+          height: 65px;
+
+          padding: 0 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        /* HERO */
+
+        .hero {
+          padding: 100px 20px 30px;
+        }
+
+        .hero-top {
+          gap: 20px;
+        }
+
+        .availability {
+          text-align: right;
+        }
+
+        .hero-title {
+          min-height: 55vh;
+        }
+
+        .hero h1 {
+          font-size: 22vw;
+        }
+
+        .hero-bottom {
+          grid-template-columns: 1fr;
+
+          gap: 30px;
+        }
+
+        .hero-meta {
+          justify-content: flex-start;
+        }
+
+        /* MAIN PADDINGS */
+
+        .projects,
+        .experience,
+        .tools {
+          padding: 100px 20px;
+        }
+
+        /* PROJECTS */
+
+        .section-header {
+          grid-template-columns: 1fr;
+
+          margin-bottom: 65px;
+        }
+
+        .section-header h2 {
+          font-size: 16vw;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+
+          gap: 60px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-content {
+          grid-template-columns: 1fr;
+
+          gap: 0;
+        }
+
+        .experience-title h2 {
+          position: static;
+
+          margin-bottom: 70px;
+        }
+
+        .experience-data h3 {
+          font-size: 34px;
+        }
+
+        /* ABOUT */
+
+        .about {
+          padding: 100px 20px 0;
+        }
+
+        .about-top {
+          padding-bottom: 65px;
+        }
+
+        .about-title h2 {
+          font-size: 17vw;
+
+          line-height: 0.87;
+        }
+
+        .about-info {
+          margin-top: 70px;
+
+          padding-bottom: 0;
+        }
+
+        .about-columns {
+          grid-template-columns: 1fr;
+
+          gap: 25px;
+        }
+
+        .stats {
+          margin-top: 80px;
+
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat {
+          min-height: 175px;
+
+          padding: 20px 15px;
+        }
+
+        .stat:first-child {
+          padding-left: 0;
+        }
+
+        .stat:nth-child(3) {
+          padding-left: 0;
+        }
+
+        /* TOOLS */
+
+        .tools-header {
+          flex-direction: column;
+        }
+
+        .tool {
+          grid-template-columns:
+            50px
+            1fr;
+        }
+
+        /* CONTACT */
+
+        .contact {
+          padding: 100px 20px 30px;
+        }
+
+        .contact-heading h2 {
+          font-size: 20vw;
+        }
+
+        .contact-bottom {
+          flex-direction: column;
+
+          align-items: flex-start;
+        }
+
+        .contact-links {
+          align-items: flex-start;
+        }
+
+        /* FOOTER */
+
+        footer {
+          padding: 25px 20px;
+        }
+      }
+
+      /* =========================
+       SMALL MOBILE
+    ========================== */
+
+      @media (max-width: 520px) {
+        .hero-top {
+          font-size: 9px;
+        }
+
+        .hero-description {
+          font-size: 20px;
+        }
+
+        .about-lead {
+          font-size: 22px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat {
+          min-height: 140px;
+
+          border-right: 0;
+
+          border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+          padding: 22px 0;
+        }
+
+        .stat:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        }
+
+        .stat:last-child {
+          border-bottom: 0;
+        }
+
+        .contact-links a {
+          font-size: 23px;
+        }
+
+        footer {
+          gap: 25px;
+
+          flex-direction: column;
+        }
+      }
+    </style>
+  </body>
+</html>
