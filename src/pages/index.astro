@@ -969,23 +969,51 @@ const stats = [
       @media (max-width: 850px) {
         .nav {
           height: 65px;
-          padding: 0 20px;
+          padding: 0 max(20px, env(safe-area-inset-right)) 0
+            max(20px, env(safe-area-inset-left));
         }
 
         .nav-links {
+          display: flex;
+          gap: 0;
+        }
+
+        .nav-links a {
+          display: none;
+        }
+
+        .nav-links a:last-child {
+          min-height: 38px;
+          padding: 0 15px;
+          display: inline-flex;
+          align-items: center;
+          border: 1px solid rgba(0, 0, 0, 0.24);
+          border-radius: 999px;
+          font-size: 11px;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+
+        .nav-links a:last-child::after {
           display: none;
         }
 
         .hero {
-          padding: 100px 20px 30px;
+          min-height: max(680px, 100svh);
+          padding: 94px 20px 28px;
         }
 
         .hero-title {
-          min-height: 55vh;
+          flex: 0 0 auto;
+          min-height: 0;
+          padding: clamp(72px, 16svh, 132px) 0 clamp(68px, 13svh, 108px);
         }
 
         .hero h1 {
-          font-size: 22vw;
+          width: 100%;
+          font-size: clamp(64px, 20.5vw, 126px);
+          line-height: 0.8;
+          letter-spacing: -0.08em;
         }
 
         .hero-bottom,
@@ -995,11 +1023,32 @@ const stats = [
         }
 
         .hero-bottom {
-          gap: 30px;
+          gap: 28px;
+          padding-top: 24px;
+          border-top: 1px solid rgba(0, 0, 0, 0.18);
+        }
+
+        .hero-description {
+          max-width: 29rem;
+          font-size: clamp(19px, 5vw, 25px);
+          line-height: 1.32;
         }
 
         .hero-meta {
           justify-content: flex-start;
+          gap: 7px;
+        }
+
+        .hero-meta span {
+          padding: 8px 12px;
+          font-size: 10px;
+        }
+
+        .scroll {
+          width: 100%;
+          margin-top: 34px;
+          padding-top: 18px;
+          border-top: 1px solid rgba(0, 0, 0, 0.18);
         }
 
         .projects,
@@ -1010,6 +1059,17 @@ const stats = [
 
         .section-header {
           margin-bottom: 65px;
+        }
+
+        .section-header h2 {
+          margin-top: 20px;
+          font-size: clamp(50px, 14.5vw, 82px);
+          line-height: 0.9;
+          overflow-wrap: normal;
+        }
+
+        .section-intro p {
+          font-size: 16px;
         }
 
         .projects-grid {
@@ -1025,6 +1085,7 @@ const stats = [
         .experience-title h2 {
           position: static;
           margin-bottom: 70px;
+          font-size: clamp(46px, 13vw, 76px);
         }
 
         .about {
@@ -1036,7 +1097,7 @@ const stats = [
         }
 
         .about-title h2 {
-          font-size: 17vw;
+          font-size: clamp(52px, 16vw, 92px);
           line-height: 0.87;
         }
 
@@ -1064,23 +1125,45 @@ const stats = [
 
         .tool {
           grid-template-columns: 50px 1fr;
+          font-size: clamp(27px, 8vw, 46px);
         }
 
         .contact {
-          padding: 100px 20px 30px;
+          min-height: max(620px, 100svh);
+          padding: 92px 20px 28px;
         }
 
         .contact-heading h2 {
-          font-size: 20vw;
+          max-width: 100%;
+          margin-top: clamp(54px, 12svh, 92px);
+          font-size: clamp(54px, 15.5vw, 96px);
+          line-height: 0.84;
+          letter-spacing: -0.07em;
         }
 
         .contact-bottom {
+          width: 100%;
+          margin-top: auto;
+          padding-top: 34px;
           flex-direction: column;
           align-items: flex-start;
+          gap: 32px;
+          border-top: 1px solid #333;
         }
 
         .contact-links {
+          width: 100%;
           align-items: flex-start;
+          gap: 0;
+        }
+
+        .contact-links a {
+          width: 100%;
+          padding: 14px 0;
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid #292929;
+          font-size: clamp(22px, 6vw, 30px);
         }
 
         footer {
@@ -1090,16 +1173,38 @@ const stats = [
 
       @media (max-width: 520px) {
         .hero-top {
-          gap: 20px;
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr);
+          align-items: start;
+          gap: 16px;
           font-size: 9px;
+          line-height: 1.35;
         }
 
         .availability {
+          justify-content: flex-end;
           text-align: right;
         }
 
-        .hero-description {
-          font-size: 20px;
+        .hero-title {
+          padding-top: clamp(74px, 16svh, 104px);
+          padding-bottom: clamp(62px, 12svh, 88px);
+        }
+
+        .hero h1 {
+          font-size: clamp(58px, 20vw, 84px);
+        }
+
+        .project-info h3 {
+          font-size: 22px;
+        }
+
+        .experience-data h3 {
+          font-size: clamp(32px, 10vw, 42px);
+        }
+
+        .about-lead {
+          font-size: 21px;
         }
 
         .stats {
@@ -1113,13 +1218,50 @@ const stats = [
           padding: 22px 0;
         }
 
-        .contact-links a {
-          font-size: 23px;
+        .contact-heading h2 {
+          font-size: clamp(49px, 15.25vw, 78px);
+        }
+
+        .contact-bottom p {
+          max-width: 18rem;
+          font-size: 14px;
         }
 
         footer {
           gap: 25px;
           flex-direction: column;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .hero,
+        .projects,
+        .experience,
+        .tools,
+        .contact {
+          padding-right: 16px;
+          padding-left: 16px;
+        }
+
+        .hero h1 {
+          font-size: clamp(54px, 19.5vw, 68px);
+        }
+
+        .section-header h2 {
+          font-size: 46px;
+        }
+
+        .about {
+          padding-right: 16px;
+          padding-left: 16px;
+        }
+
+        .about-title h2 {
+          font-size: 49px;
+        }
+
+        .contact-heading h2 {
+          font-size: clamp(45px, 14.8vw, 53px);
         }
       }
     </style>
